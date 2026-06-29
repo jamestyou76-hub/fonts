@@ -1,0 +1,21 @@
+{
+  "name": "@wheregone/fonts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A local font SDK with manifest, CSS entrypoints, and install scripts.",
+  "files": [
+    "doc-font",
+    "italic",
+    "narrow",
+    "sdk",
+    "scripts"
+  ],
+  "exports": {
+    "./manifest": "./sdk/fonts.manifest.json",
+    "./css": "./sdk/fonts.css"
+  },
+  "scripts": {
+    "build": "python scripts/build_font_sdk.py",
+    "validate": "python scripts/validate_font_sdk.py"
+  }
+}
