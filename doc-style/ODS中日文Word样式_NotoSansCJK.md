@@ -140,37 +140,59 @@ Word 字体属性要求：
 
 ## 10. 页眉与页脚
 
-页眉必须加入日文公司名：
+页眉页脚视觉样板参考：
+
+```text
+doc-style/ODS_Header_Design_Color_2026-0702-1101.docx
+```
+
+该 DOCX 作为页眉页脚的可视化样板保留；Markdown 规范作为文字规则，DOCX 用于确认实际间距、logo 大小、规则线颜色和三栏比例。
+
+页眉必须加入 ODS 品牌识别，优先使用彩色 ODS logo；若无法插入 logo，至少加入日文公司名：
 
 ```text
 有限会社ODS
 ```
 
-推荐页眉左侧显示：
+正文页页眉推荐采用一行紧凑三栏结构：
+
+| 区域 | 内容 | 位置和样式 |
+|---|---|---|
+| 左侧 | ODS 彩色 logo 或 `有限会社ODS` | 左对齐，logo 宽约 25-28 mm；不要放完整地址 |
+| 中央 | 项目名称 / 文档名称 / 文档类型 | 居中或左对齐，主色 `#0F6B6D`，8.2-8.8 pt |
+| 右侧 | Rev、版数或自动页码 | 右对齐，主色 `#0F6B6D`，8.2-8.8 pt |
 
 ```text
-有限会社ODS | 项目名称 | 文档类型
+有限会社ODS | 项目名称 / 文档名称 | 文档类型
 ```
 
 日文文档可写为：
 
 ```text
-有限会社ODS | プロジェクト名 | 文書種別
+有限会社ODS | プロジェクト名 / 文書名 | 文書種別
 ```
 
-页脚左侧建议显示：
+页眉设计要求：
+
+- 页眉距离页面顶边约 8.2-9 mm，整体高度控制在 8-9 mm 左右，减少对正文区的占用。
+- 页眉下方使用细规则线分隔正文；彩色版使用 ODS 蓝绿色 `#0F6B6D`，线宽约 0.75 pt；黑白打印版使用灰阶线，线宽约 0.5 pt。
+- 正文页页眉只保留品牌、文档识别、Rev 和页码等查阅所需信息；地址、TEL、详细公司信息不要每页重复。
+- 对外电子提交和 PDF 优先使用彩色版；黑白打印或传真用途不得直接使用彩色 logo，应改用灰度 logo 和灰阶规则线。
+- 第一页若需要公司地址、TEL 或较大的公司信息块，放在标题区右上角或基本信息表，不放入每页运行页眉。
+
+页脚左侧建议显示资料日期、版本和官网 URL：
 
 ```text
-资料日期：YYYY-MM-DD | 报告版本：Rev.X.X
+资料日期：YYYY-MM-DD | 报告版本：Rev.X.X | https://www.ods-web.co.jp/
 ```
 
 日文文档可写为：
 
 ```text
-資料日付：YYYY-MM-DD | 報告版数：Rev.X.X
+資料日付：YYYY-MM-DD | 報告版数：Rev.X.X | https://www.ods-web.co.jp/
 ```
 
-页脚右侧显示自动页码：
+页脚右侧显示自动页码，或将页码放在页眉右侧；全文保持一种做法：
 
 ```text
 第 X 页
@@ -182,7 +204,7 @@ Word 字体属性要求：
 X / Y ページ
 ```
 
-页眉页脚按语言设置字体：中文内容使用 `Noto Sans CJK SC`，日文内容使用 `Noto Sans CJK JP`。字号 8.2-8.5 pt，颜色 `#5B6573`，不添加粗重装饰线。
+页眉页脚按语言设置字体：中文内容使用 `Noto Sans CJK SC`，日文内容使用 `Noto Sans CJK JP`。页眉主信息使用 `#0F6B6D`，页脚使用灰色 `#5B6573`，字号 8.2-8.8 pt，不添加粗重装饰线、阴影或大面积色块。
 
 ## 11. Word 生成实现要点
 
@@ -193,7 +215,7 @@ X / Y ページ
 - 中文 run 的 `w:eastAsia`、`w:ascii`、`w:hAnsi` 和 `w:cs` 字体设置为 `Noto Sans CJK SC`；中文粗体使用 `Noto Sans CJK SC Bold` 或设置 bold。
 - 日文 run 的 `w:eastAsia`、`w:ascii`、`w:hAnsi` 和 `w:cs` 字体设置为 `Noto Sans CJK JP`；日文粗体使用 `Noto Sans CJK JP Bold` 或设置 bold。
 - 中日文混排内容按语言拆分 run，不使用单一字体覆盖整段混排文本。
-- 页眉创建后写入 `有限会社ODS | 项目名称 | 文档类型`。
+- 页眉创建后按 `doc-style/ODS_Header_Design_Color_2026-0702-1101.docx` 的样板实现：左侧 ODS logo 或公司名，中间项目/文档信息，右侧 Rev 或页码，下方细规则线。
 - 表头填充 `0F6B6D`，表头文字白色、加粗。
 - 数据行隔行填充 `FFFFFF` / `EAF3F3`。
 - 所有单元格边框设置为黑色 `000000`。
@@ -209,6 +231,7 @@ X / Y ページ
 - 确认中文、中文段落内英文/数字、中文表格内容和中文页眉页脚使用 `Noto Sans CJK SC` / `Noto Sans CJK SC Bold`。
 - 确认日文、日文段落内英文/数字、日文表格内容和日文页眉页脚使用 `Noto Sans CJK JP` / `Noto Sans CJK JP Bold`。
 - 确认页眉含有 `有限会社ODS`。
+- 确认页眉页脚接近 `doc-style/ODS_Header_Design_Color_2026-0702-1101.docx` 样板：三栏页眉、细规则线、页脚日期/版本/官网 URL、自动页码。
 - 确认表格没有超出页边距，长文本能够正常换行。
 - 确认跨页表格重复表头。
 - 确认图片清晰、比例正确、图题与图片保持在一起。
@@ -219,4 +242,4 @@ X / Y ページ
 
 后续需要生成同风格 Word 时，可直接使用：
 
-> 按《ODS 中日文 Word 报告样式：Noto Sans CJK》生成 Word。页面方向按内容决定，不必特别指定横竖；中文使用 `Noto Sans CJK SC` / `Noto Sans CJK SC Bold`，日文使用 `Noto Sans CJK JP` / `Noto Sans CJK JP Bold`，中日文混排时按语言拆分 run，不使用单一字体覆盖整段文本；页眉加入 `有限会社ODS`；采用蓝绿色表头、黑色表格边框、隔行浅色底纹；首页先给总体结论和关键风险；生成文件名在扩展名前追加 JST 日期时间后缀 `_yyyy-mmdd-hhmm`；生成后逐页渲染检查。
+> 按《ODS 中日文 Word 报告样式：Noto Sans CJK》生成 Word。页面方向按内容决定，不必特别指定横竖；中文使用 `Noto Sans CJK SC` / `Noto Sans CJK SC Bold`，日文使用 `Noto Sans CJK JP` / `Noto Sans CJK JP Bold`，中日文混排时按语言拆分 run，不使用单一字体覆盖整段文本；页眉页脚参考 `doc-style/ODS_Header_Design_Color_2026-0702-1101.docx`，页眉使用 ODS logo 或 `有限会社ODS`、项目/文档信息、Rev 或页码和细蓝绿色规则线，页脚包含资料日期、版本和官网 URL；采用蓝绿色表头、黑色表格边框、隔行浅色底纹；首页先给总体结论和关键风险；生成文件名在扩展名前追加 JST 日期时间后缀 `_yyyy-mmdd-hhmm`；生成后逐页渲染检查。
