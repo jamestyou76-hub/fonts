@@ -252,7 +252,7 @@ def build_manifest(root: Path, faces: list[dict[str, Any]]) -> dict[str, Any]:
     tracked_count = sum(1 for face in faces if face["tracked"])
     return {
         "schemaVersion": 1,
-        "name": "@wheregone/fonts",
+        "name": "@jamestyou76-hub/fonts",
         "description": "Local font SDK manifest generated from this repository.",
         "summary": {
             "files": len({face["path"] for face in faces}),

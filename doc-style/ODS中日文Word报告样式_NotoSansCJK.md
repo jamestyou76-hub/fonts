@@ -2,14 +2,14 @@
 
 适用场景：面向 `有限会社ODS` 的中文、日文或中日文混排技术报告、设计审查报告、客户要求整理书、工程 TODO、器件评估和验证说明。
 
-本样式参考 `工程技术报告_Word风格规范.md`、`Word报告样式模板_A4竖向.md`、`Word报告样式模板_A4横向.md` 和 `PDF_样式_NotoSansCJK_复用说明.md`。页面横向或竖向按内容自行选择，本规范不强制指定方向。
+页面横向或竖向按内容自行选择，本规范不强制指定方向。
 
 ## 1. 文档定位
 
 - 文档类型：正式工程技术报告、设计审查报告、设计需求整理、工程 TODO、评估 memo。
 - 设计原则：专业、克制、信息密度适中、结论优先、便于客户快速扫描。
 - 内容顺序：先给结论和风险，再给依据、表格、计算、图示和验证项。
-- 语言原则：中文、日文、英文、数字、器件型号、网络名和页眉页脚统一排版，不混用系统默认宋体、MS Gothic 或 SimSun。
+- 语言原则：中文使用 `Noto Sans CJK SC` / `Noto Sans CJK SC Bold`，日文使用 `Noto Sans CJK JP` / `Noto Sans CJK JP Bold`；英文、数字、器件型号、网络名随所在中文或日文段落使用对应字体，不混用系统默认宋体、MS Gothic 或 SimSun。
 - 未确定事项统一写为 `TBD`，不要写成确定结论。
 
 ## 2. 页面设定
@@ -25,22 +25,23 @@
 
 ## 3. 字体与链接
 
-中文和日文统一使用 Noto Sans CJK。日文文档或中日文混排优先使用 `Noto Sans CJK JP`；简体中文为主且日文较少时可使用 `Noto Sans CJK SC`。
+中文和日文分别使用对应的 Noto Sans CJK 字体，不再将中日文混用为同一套字体。中文文字使用 `Noto Sans CJK SC`，中文粗体使用 `Noto Sans CJK SC Bold`；日文文字使用 `Noto Sans CJK JP`，日文粗体使用 `Noto Sans CJK JP Bold`。
 
-只列 TTF 文件，Word 使用场景下 TTF 已足够。若后续用于 LaTeX/PDF，也可按工具支持情况改用同目录 OTF。
+Word 使用场景下 TTF 已足够。若后续用于 LaTeX/PDF，也可按工具支持情况改用同目录 OTF。需要安装或打包字体时，可从下表链接按需下载。
 
-| 用途 | 字体 | GitHub 文件链接 |
-|---|---|---|
-| 中日文正文，优先推荐 | Noto Sans CJK JP Regular | https://github.com/wheregone/fonts/blob/main/doc-font/NotoSansCJKjp-Regular.ttf |
-| 中日文粗体，优先推荐 | Noto Sans CJK JP Bold | https://github.com/wheregone/fonts/blob/main/doc-font/NotoSansCJKjp-Bold.ttf |
-| 简体中文正文备用 | Noto Sans CJK SC Regular | https://github.com/wheregone/fonts/blob/main/doc-font/NotoSansCJKsc-Regular.ttf |
-| 简体中文粗体备用 | Noto Sans CJK SC Bold | https://github.com/wheregone/fonts/blob/main/doc-font/NotoSansCJKsc-Bold.ttf |
+| 用途 | 字体 | TTF 链接 | OTF 链接 |
+|---|---|---|---|
+| 中文正文 | Noto Sans CJK SC Regular | <https://github.com/jamestyou76-hub/fonts/blob/main/doc-font/NotoSansCJKsc-Regular.ttf> | <https://github.com/jamestyou76-hub/fonts/blob/main/doc-font/NotoSansCJKsc-Regular.otf> |
+| 中文粗体 | Noto Sans CJK SC Bold | <https://github.com/jamestyou76-hub/fonts/blob/main/doc-font/NotoSansCJKsc-Bold.ttf> | <https://github.com/jamestyou76-hub/fonts/blob/main/doc-font/NotoSansCJKsc-Bold.otf> |
+| 日文正文 | Noto Sans CJK JP Regular | <https://github.com/jamestyou76-hub/fonts/blob/main/doc-font/NotoSansCJKjp-Regular.ttf> | <https://github.com/jamestyou76-hub/fonts/blob/main/doc-font/NotoSansCJKjp-Regular.otf> |
+| 日文粗体 | Noto Sans CJK JP Bold | <https://github.com/jamestyou76-hub/fonts/blob/main/doc-font/NotoSansCJKjp-Bold.ttf> | <https://github.com/jamestyou76-hub/fonts/blob/main/doc-font/NotoSansCJKjp-Bold.otf> |
 
 Word 字体属性要求：
 
-- 中文、日文、英文、数字、器件型号、网络名、表格、图题、页眉页脚均设置为同一字体族。
-- Word 的西文、复杂文字和东亚文字字体属性都设置为 `Noto Sans CJK JP` 或 `Noto Sans CJK SC`。
-- 同一份文档内不要混用 `Noto Sans CJK JP` 和 `Noto Sans CJK SC` 作为主字体；除非确有字形需求，只保留另一套作为 fallback。
+- 中文 run 的 Word 西文、复杂文字和东亚文字字体属性均设置为 `Noto Sans CJK SC`，粗体使用 `Noto Sans CJK SC Bold` 或 Word bold 属性映射到对应粗体。
+- 日文 run 的 Word 西文、复杂文字和东亚文字字体属性均设置为 `Noto Sans CJK JP`，粗体使用 `Noto Sans CJK JP Bold` 或 Word bold 属性映射到对应粗体。
+- 同一段落或表格单元格内若同时包含中文和日文，应按语言拆分 run 并分别设置字体；不要用 `Noto Sans CJK JP` 覆盖中文，也不要用 `Noto Sans CJK SC` 覆盖日文。
+- 英文、数字、器件型号和网络名随所在语言上下文设置字体；中文段落内用 `Noto Sans CJK SC`，日文段落内用 `Noto Sans CJK JP`。
 - 若必须交付可稳定复现的 Word，建议嵌入字体或同时提供上述 TTF。
 
 ## 4. 字号与层级
@@ -181,15 +182,17 @@ Word 字体属性要求：
 X / Y ページ
 ```
 
-页眉页脚使用 `Noto Sans CJK JP` 或 `Noto Sans CJK SC`，字号 8.2-8.5 pt，颜色 `#5B6573`，不添加粗重装饰线。
+页眉页脚按语言设置字体：中文内容使用 `Noto Sans CJK SC`，日文内容使用 `Noto Sans CJK JP`。字号 8.2-8.5 pt，颜色 `#5B6573`，不添加粗重装饰线。
 
 ## 11. Word 生成实现要点
 
 使用 `python-docx` 或其他工具生成 Word 时建议：
 
+- 生成文件名必须在扩展名前追加 JST 日期时间后缀，格式为 `_yyyy-mmdd-hhmm`，例如 `_1999-0322-1734`。
 - 不强制设置横向或竖向；根据内容宽度选择页面方向。
-- 全文所有 run 设置 `w:eastAsia`、`w:ascii`、`w:hAnsi` 和 `w:cs` 字体为同一 Noto Sans CJK 字体。
-- 日文和中日文混排默认 `Noto Sans CJK JP`；简体中文主文档可用 `Noto Sans CJK SC`。
+- 中文 run 的 `w:eastAsia`、`w:ascii`、`w:hAnsi` 和 `w:cs` 字体设置为 `Noto Sans CJK SC`；中文粗体使用 `Noto Sans CJK SC Bold` 或设置 bold。
+- 日文 run 的 `w:eastAsia`、`w:ascii`、`w:hAnsi` 和 `w:cs` 字体设置为 `Noto Sans CJK JP`；日文粗体使用 `Noto Sans CJK JP Bold` 或设置 bold。
+- 中日文混排内容按语言拆分 run，不使用单一字体覆盖整段混排文本。
 - 页眉创建后写入 `有限会社ODS | 项目名称 | 文档类型`。
 - 表头填充 `0F6B6D`，表头文字白色、加粗。
 - 数据行隔行填充 `FFFFFF` / `EAF3F3`。
@@ -203,7 +206,8 @@ X / Y ページ
 生成 Word 后必须检查：
 
 - 渲染为 PDF 或 PNG，逐页确认没有缺字、方框、文字重叠或裁切。
-- 确认中文、日文、英文、数字、页眉页脚和表格字体均为 Noto Sans CJK。
+- 确认中文、中文段落内英文/数字、中文表格内容和中文页眉页脚使用 `Noto Sans CJK SC` / `Noto Sans CJK SC Bold`。
+- 确认日文、日文段落内英文/数字、日文表格内容和日文页眉页脚使用 `Noto Sans CJK JP` / `Noto Sans CJK JP Bold`。
 - 确认页眉含有 `有限会社ODS`。
 - 确认表格没有超出页边距，长文本能够正常换行。
 - 确认跨页表格重复表头。
@@ -215,4 +219,4 @@ X / Y ページ
 
 后续需要生成同风格 Word 时，可直接使用：
 
-> 按《ODS 中日文 Word 报告样式：Noto Sans CJK》生成 Word。页面方向按内容决定，不必特别指定横竖；中文、日文、英文、数字、器件型号、表格、图题及页眉页脚统一使用 Noto Sans CJK JP，必要时简体中文文档可用 Noto Sans CJK SC；页眉加入 `有限会社ODS`；采用蓝绿色表头、黑色表格边框、隔行浅色底纹；首页先给总体结论和关键风险；生成后逐页渲染检查。
+> 按《ODS 中日文 Word 报告样式：Noto Sans CJK》生成 Word。页面方向按内容决定，不必特别指定横竖；中文使用 `Noto Sans CJK SC` / `Noto Sans CJK SC Bold`，日文使用 `Noto Sans CJK JP` / `Noto Sans CJK JP Bold`，中日文混排时按语言拆分 run，不使用单一字体覆盖整段文本；页眉加入 `有限会社ODS`；采用蓝绿色表头、黑色表格边框、隔行浅色底纹；首页先给总体结论和关键风险；生成文件名在扩展名前追加 JST 日期时间后缀 `_yyyy-mmdd-hhmm`；生成后逐页渲染检查。

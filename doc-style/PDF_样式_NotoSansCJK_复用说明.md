@@ -227,18 +227,20 @@ python /home/oai/skills/pdfs/scripts/render_pdf.py output.pdf --out_dir render_c
 
 ## 8. 推荐文件命名
 
+生成文件名必须在扩展名前追加 JST 日期时间后缀，格式为 `_yyyy-mmdd-hhmm`，例如 `_1999-0322-1734`。
+
 中文：
 
 ```text
-电池充电基板_当前SCH电路TODO_精简版_ZH.pdf
-电池充电基板_当前SCH电路TODO_精简版_ZH.md
+电池充电基板_当前SCH电路TODO_精简版_ZH_1999-0322-1734.pdf
+电池充电基板_当前SCH电路TODO_精简版_ZH_1999-0322-1734.md
 ```
 
 日文：
 
 ```text
-バッテリー充電基板_現行SCH回路TODO_簡易版_JP.pdf
-バッテリー充電基板_現行SCH回路TODO_簡易版_JP.md
+バッテリー充電基板_現行SCH回路TODO_簡易版_JP_1999-0322-1734.pdf
+バッテリー充電基板_現行SCH回路TODO_簡易版_JP_1999-0322-1734.md
 ```
 
 若有专题版本，可追加后缀：
